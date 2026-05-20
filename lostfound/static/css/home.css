@@ -1,0 +1,182 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.material-symbols-outlined {
+
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 200,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+body{padding-bottom: 60px;
+padding-top: 40px;}
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a3d2e; /* Dark green */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    color: white;
+}
+
+.logo {
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #28cf28;
+    padding: 5px 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.btn-lost { background-color: #ee780a; color: white; }
+.btn-found { background-color: #22e022; color: white; }
+.btn-login { background-color: #fff; color: #1a3d2e; }
+
+/* Hero Section with Background Image */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                url('/static/image/lens.jpg')no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Search Box Container */
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.container h2 {
+    color: #1e6a25;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.container h4 {
+    color: #0cea40;
+    margin-bottom: 20px;
+}
+
+.Upload {
+    display: flex;
+    padding: 10px;
+   gap: 10px;
+      display: flex;
+    justify-content: center;
+    
+   }
+.item{text-decoration: none;
+color: #fff;
+ border-radius: 4px;
+  padding: 12px;
+    border: 1px solid #ccc;
+      cursor: pointer;
+    font-weight: bold;
+ 
+ }
+
+.found{
+     background-color: #0cea40;
+}
+.found:hover{
+    background-color: #058824;
+}
+.lost{ background-color: #f56d0c;}
+.lost:hover{background-color: #bb5309;}
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.head{color: #075e39;
+    margin-top: 10px;
+text-align: center;}
+.card img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card h3 {
+    margin: 10px 0;
+}
+
+.card p {
+    color: #555;
+    font-size: 14px;
+}
+
+.detail {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.footer {
+    position: fixed;   
+    bottom: 0;         
+    left: 0;
+    width: 100%;
+    
+    background-color: #1a3d2e;
+    padding: 15px 0;
+    
+    display: flex;     
+    justify-content: center;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer a:hover {
+    color: yellow;
+}

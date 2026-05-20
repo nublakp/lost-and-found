@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Item</title>
+     <link rel="stylesheet" href="{% static 'css/edit_item.css' %}">
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Edit Item</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label>Title</label>
+        <input type="text" name="title" value="{{ item.title }}" required>
+
+        <label>Description</label>
+        <textarea name="description" required>{{ item.description }}</textarea>
+
+        <label>Location</label>
+        <input type="text" name="location" value="{{ item.location }}" required>
+        {% if type == 'LOST' %}
+    <label>Lost Date</label>
+    <input type="date" name="lost_date" value="{{ item.lost_date|date:'Y-m-d'}}">
+    {% elif type == 'FOUND' %}
+    <label>Found Date</label>
+    <input type="date" name="found_date" value="{{ item.found_date|date:'Y-m-d' }}">
+     {% endif %}
+        <!-- Existing Image -->
+        {% if item.image %}
+            <p>Current Image:</p>
+            <img src="{{ item.image.url }}" class="preview-img">
+        {% endif %}
+
+        <!-- Upload New Image -->
+        <label>Change Image</label>
+        <input type="file" name="image">
+
+        <button type="submit" class="btn">Update Item</button>
+    </form>
+</div>
+
+</body>
+</html>

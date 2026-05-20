@@ -1,0 +1,69 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+    background-color: #021d11; /* Dark green */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    color: white;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #28cf28;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.item {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+ .lost { background-color: #ee780a; color: white; }
+ .found { background-color: #22e022; color: white; }
+.footer {
+    position: fixed;   
+    bottom: 0;         
+    left: 0;
+    width: 100%;
+    
+    background-color: #02170e;
+    padding: 15px 0;
+    
+    display: flex;     
+    justify-content: center;
+
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+     padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: rgb(3, 69, 69);
+    margin-left: 20px;
+}
+
+.footer a:hover {
+    color: yellow;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+</head>
+<body>
+
+<h1>Admin Dashboard</h1>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Approved</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for item in items %}
+    <tr>
+        <td>{{ item.title }}</td>
+        <td>{{ item.status }}</td>
+        <td>
+            {% if item.is_approved %}
+                <span class="approved">Yes</span>
+            {% else %}
+                <span class="pending">No</span>
+            {% endif %}
+        </td>
+
+        <td>
+            <a class="btn approve" href="{% url 'approve_item' item.id %}">Approve</a>
+            <a class="btn reject" href="{% url 'reject_item' item.id %}">Reject</a>
+
+            <form action="{% url 'delete_item' item.id %}" method="POST" style="display:inline;">
+                {% csrf_token %}
+                <button class="btn delete" type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<h2>Claimed Items</h2>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Approved</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for claim in claimed_items %}
+    <tr>
+        <td>{{ claim.item }}</td>
+       
+       <td>
+            {% if claim.is_approved %}
+                <span class="approved">Approved</span>
+            {% else %}
+                <span class="pending">Pending</span>
+            {% endif %}
+        </td>
+         <td>
+            <a class="btn approve" href="{% url 'approve_claim' claim.id %}">Approve</a>
+            <a class="btn reject" href="{% url 'reject_claim' claim.id %}">Reject</a>
+
+            <form action="{% url 'delete_claim' claim.id %}" method="POST" style="display:inline;">
+                {% csrf_token %}
+                <button class="btn delete" type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="3">No claimed items</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

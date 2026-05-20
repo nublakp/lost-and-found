@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Item Detail</title>
+    <link rel="stylesheet" href="{% static 'css/item_detail.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h2>{{ item.title }}</h2>
+
+    <p><strong>Description:</strong> {{ item.description }}</p>
+    <p><strong>Location:</strong> {{ item.location }}</p>
+    {% if item.status == 'FOUND' %}
+    <p><strong>Date:</strong> {{ item.found_date }}</p>
+    {% else %}
+  <p><strong>Date:</strong> {{ item.lost_date }}</p>
+  {% endif %}
+    {% if item.image %}
+        <img src="{{ item.image.url }}" class="item-img">
+    {% endif %}
+
+    {% if request.user == item.user %}
+        <div class="actions">
+           {% if item.status == 'FOUND' %}
+            <a href="{% url 'edit_item' item.id 'FOUND' %}" class="btn edit">Edit</a>
+           {% else %}
+           <a href="{% url 'edit_item' item.id 'LOST' %}" class="btn edit">Edit</a>
+           {% endif %}
+              <a href="{% url 'delete_item' item.id %}" class="btn delete">delete</a>
+        {% endif %}
+        
+        {% if item.status == 'FOUND' %}
+          {% if approved_claim == 'False'  %}
+             {% if item.user != request.user %}
+           <a href ="{% url 'claim' item.id  %}" class="btn claim">Claim This Item</a>
+             {% endif %}
+          {% else %}
+          <button class="btn claimed"> Claimed</button>
+           {% endif %}
+
+          {% endif %}
+        
+    
+        </div>
+</div>
+
+</body>
+</html>

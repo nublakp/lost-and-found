@@ -1,0 +1,58 @@
+ {% include "base.html" %}
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title> found Items</title>
+     <link rel="stylesheet" href="{% static 'css/items.css' %}">
+</head>
+<body>
+  <div class="first">    
+ <h2>Found Items</h2>
+
+<!-- 🔍 Search Form -->
+
+<form method="GET">
+   <div class="search"> 
+    <input type="text" name="location" placeholder="Search by location" value="{{ request.GET.location }}">
+    <button type="submit">Search </button>
+</div>
+</div>
+</form>
+
+<hr>
+
+<!-- 📦 Items List -->
+{% for item in newitems %}
+    <div class="card">
+           {% if item.image %}
+          <img src="{{ item.image.url }}" alt="item image">
+          {% else %}
+            <img src="static/default.png">
+             {% endif %}
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+{% endfor %}
+ </div>
+
+<div class="container">
+    {% for item in items %}
+        <div class="card">
+            {% if item.image %}
+          <img src="{{ item.image.url }}" alt="item image">
+          {% else %}
+            <img src="static/default.png">
+             {% endif %}
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+
+            <a href="{% url 'item_detail' item.id %}" class="btn">View Details</a>
+        </div>
+    {% empty %}
+     <p>No found items found 😔</p>
+       
+    {% endfor %}
+</div>
+
+</body>
+</html>

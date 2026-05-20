@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Lost and Found</title>
+       <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    </head>
+<body>
+
+    <header>
+        <div class="logo"><span class="material-symbols-outlined">
+hand_meal
+</span>Get Back </div>
+        <nav>
+            <a href="{% url 'lost_items' %}" class="btn btn-lost">Lost Items</a>
+            <a href="{% url 'found_items' %}" class="btn btn-found">Found Items</a>
+            <a href="{% url 'login' %}" class="btn btn-login">Login</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2> what did you lost or found</h2>
+            <h4>Experience effortless recovery with our dedicated Lost
+                and found service
+            </h4>
+            <div class="Upload">
+                <a href="{% url 'reportfound' %}" class="item found" onclick="return checkLogin()">Upload found item</a>
+                <a href="{% url 'reportlost' %}"class="item lost" onclick="return checkLogin()">Upload lost item</a>
+            </div>
+        </div>
+    </section>
+    <h1 class ="head">Recently Added Found Items</h1>
+
+<div class="card-container">
+    {% for item in recent_found_items %}
+        <div class="card">
+            {% if item.image %}
+                <img src="{{ item.image.url }}" alt="item image">
+            {% endif %}
+
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description|truncatewords:10 }}</p>
+            <p><strong>Location:</strong> {{ item.location }}</p>
+
+            <a href="{% url 'item_detail' item.id %}" class="detail">View more details</a>
+        </div>
+    {% endfor %}
+</div>
+    <h1 class ="head">Recently Added lost Items</h1>
+
+<div class="card-container">
+    {% for item in recent_lost_items %}
+        <div class="card">
+            {% if item.image %}
+                <img src="{{ item.image.url }}" alt="item image">
+            {% endif %}
+
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description|truncatewords:10 }}</p>
+            <p><strong>Location:</strong> {{ item.location }}</p>
+
+            <a href="{% url 'item_detail' item.id %}" class="detail">View more details</a>
+        </div>
+    {% endfor %}
+</div>
+<footer class="footer">
+    <a href="{% url 'home' %}"><span class="material-symbols-outlined">
+home
+</span>Home</a>
+    <a href="{% url 'mydetails' %}"><span class="material-symbols-outlined">
+orders
+</span>My Details</a>
+     <a href="{% url 'logout' %}" ><span class="material-symbols-outlined">
+logout
+</span>Logout</a>
+</footer>
+
+</body>
+<script>
+    var login="{% url 'login' %}"
+      var isLoggedIn = {{ user.is_authenticated|yesno:"true,false" }};
+</script>
+<script src="{% static 'js/home.js' %}"></script>
+</html>

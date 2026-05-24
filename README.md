@@ -25,10 +25,10 @@ A web application built using Python and Django that helps users report lost and
 Installation
 Clone the repository
 Bash
-git clone https://github.com/nublakp/lost and found.git
+git clone https://github.com/nublakp/lost-and-found.git
 Move into the project folder
 Bash
-cd lost and found
+cd lost-and-found
 Create virtual environment
 Bash
 python -m venv samplenv

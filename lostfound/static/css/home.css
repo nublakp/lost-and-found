@@ -6,6 +6,90 @@
     font-family: Arial, sans-serif;
 }
 
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#0b5d3d;
+    padding:15px 30px;
+}
+
+.logo img{
+    width:55px;
+}
+
+    .logo {
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #28cf28;
+    padding: 5px 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:15px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    padding:10px 18px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.lost-btn{
+    background:#ff9800;
+}
+
+.found-btn{
+    background:#28a745;
+}
+
+.login-btn{
+    background:white;
+    color:black !important;
+}
+
+.menu-toggle{
+    display:none;
+    font-size:30px;
+    color:white;
+    cursor:pointer;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        top:80px;
+        left:0;
+        width:100%;
+        background:#0b5d3d;
+        padding:20px 0;
+        text-align:center;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links li{
+        margin:10px 0;
+    }
+}
+
 .material-symbols-outlined {
 
   font-variation-settings:
@@ -17,43 +101,7 @@
 
 body{padding-bottom: 60px;
 padding-top: 40px;}
-/* Header */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #1a3d2e; /* Dark green */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-    color: white;
-}
 
-.logo {
-    font-size: 12px;
-    font-weight: bold;
-    background-color: #28cf28;
-    padding: 5px 15px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-}
-
-.btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-left: 10px;
-    text-decoration: none;
-}
-
-.btn-lost { background-color: #ee780a; color: white; }
-.btn-found { background-color: #22e022; color: white; }
-.btn-login { background-color: #fff; color: #1a3d2e; }
 
 /* Hero Section with Background Image */
 .hero {

@@ -13,14 +13,14 @@
         <nav>
             <a href="{% url 'reportfound' %}" class="item found" onclick="return checkLogin()">Upload found item</a>
             <a href="{% url 'reportlost' %}"class="item lost" onclick="return checkLogin()">Upload lost item</a>
-            {% comment %} <a href="{% url 'home' %}" class="item home">Home</a> {% endcomment %}
+
         </nav> 
     </header>
     <footer class="footer">
     <a href="{% url 'home' %}">Home</a>
     <a href="{% url 'mydetails' %}">My Details</a>
      <a href="{% url 'logout' %}" >Logout</a>
-</footer>
+</footer> 
     
 </body>
 <script src="{% static 'js/home.js' %}"></script>

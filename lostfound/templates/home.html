@@ -10,16 +10,22 @@
     </head>
 <body>
 
-    <header>
-        <div class="logo"><span class="material-symbols-outlined">
-hand_meal
-</span>Get Back </div>
-        <nav>
-            <a href="{% url 'lost_items' %}" class="btn btn-lost">Lost Items</a>
-            <a href="{% url 'found_items' %}" class="btn btn-found">Found Items</a>
-            <a href="{% url 'login' %}" class="btn btn-login">Login</a>
-        </nav>
-    </header>
+    <nav class="navbar">
+   
+    <div class="logo"><span class="material-symbols-outlined">
+         hand_meal</span>Get Back </div>
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle">
+        &#9776;
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+        <li><a href="{% url 'lost_items' %}" class="lost-btn">Lost Items</a></li>
+        <li><a href="{% url 'found_items' %}" class="found-btn">Found Items</a></li>
+        <li><a href="{% url 'login' %}" class="login-btn">Login</a></li>
+    </ul>
+</nav>
 
     <section class="hero">
         <div class="container">
